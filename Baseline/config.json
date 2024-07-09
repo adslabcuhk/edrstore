@@ -1,0 +1,33 @@
+{
+    "Chunker": {
+        "chunking_type": 1,
+        "max_chunk_size": 16384,
+        "avg_chunk_size": 8192,
+        "min_chunk_size": 4096,
+        "sliding_win_size": 128,
+        "read_size": 128
+    },
+    "Similar": {
+        "sliding_win_size": 48
+    },
+    "StorageServer": {
+        "ip": "127.0.0.1",
+        "port": 16666,
+        "recipe_root_path": "Recipes/",
+        "container_root_path": "Containers/",
+        "fp_2_chunk_db": "fp_chunk_db",
+        "feature_2_fp_db": "feature_fp_db",
+        "container_cache_size": 512
+    },
+    "KeyServer": {
+        "ip": "127.0.0.1",
+        "port": 16667,
+        "feature_2_key_db": "feature_key_db"
+    },
+    "Client": {
+        "id": 1,
+        "send_chunk_batch_size": 512,
+        "send_recipe_batch_size": 1024,
+        "user_key": "0123456789"
+    }
+}

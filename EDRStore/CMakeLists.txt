@@ -1,0 +1,36 @@
+set(CMAKE_BUILD_TYPE "Release")
+#set(CMAKE_BUILD_TYPE "Debug")
+cmake_minimum_required(VERSION 3.1)
+project(EDRStore)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_VERBOSE_MAKEFILE TRUE)
+list(APPEND CMAKE_MODULE_PATH ${EDRStore_SOURCE_DIR}/cmake)
+message(STATUS "CMAKE MODULE Path: ${CMAKE_MODULE_PATH}")
+
+set(EXECUTABLE_OUTPUT_PATH ${EDRStore_SOURCE_DIR}/bin)
+set(LIBRARY_OUTPUT_PATH ${EDRStore_SOURCE_DIR}/lib)
+
+set(CMAKE_C_FLAGS_DEBUG "-O0 -Wall -g -ggdb3")
+set(CMAKE_CXX_FLAGS_DEBUG "-O0 -Wall -fsanitize=address -fno-omit-frame-pointer -g -ggdb3")
+# set(CMAKE_CXX_FLAGS_DEBUG "-O0 -Wall -g -ggdb3") # for gdb, for valgrind
+set(CMAKE_C_FLAGS_RELEASE "-O3 -Wall")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall")
+
+
+#set(CMAKE_C_COMPILER "/opt/intel/oneapi/compiler/latest/linux/bin/icx")
+#set(CMAKE_CXX_COMPILER "/opt/intel/oneapi/compiler/latest/linux/bin/icpx")
+
+#set(CMAKE_C_COMPILER "/usr/bin/clang")
+#set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+#set(CMAKE_AR "/usr/bin/llvm-ar")
+#set(CMAKE_LINKER "/usr/bin/llvm-ld")
+#set(CMAKE_NM "/usr/bin/llvm-nm")
+#set(CMAKE_OBJDUMP "/usr/bin/llvm-objdump")
+#set(CMAKE_RANLIB "/usr/bin/llvm-ranlib")
+
+add_subdirectory(src)
+
+# for third party
+include_directories(third)
+add_subdirectory(third/xdelta)

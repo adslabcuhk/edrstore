@@ -1,0 +1,51 @@
+find_package(OpenSSL REQUIRED)
+find_package(LevelDB REQUIRED)
+
+if(LevelDB_FOUND)
+    include_directories(${LevelDB_INCLUDES})
+    link_directories(${LevelDB_LIBRARIES})
+else()
+    message(FATAL_ERROR "Cannot find Leveldb library")
+endif()
+message(STATUS "Find LevelDB version: ${LEVELDB_VERSION}")
+
+if(OPENSSL_FOUND)
+    # can find the openssl library
+else()
+    message(FATAL_ERROR, "Cannot find OpenSSL library")
+endif()
+
+message(STATUS "Find OpenSSL version: ${OPENSSL_VERSION}")
+if(OPENSSL_VERSION VERSION_LESS "1.1")
+    message(FATAL_ERROR, "OpenSSL version is less than 1.1")
+endif()
+
+include_directories(../include)
+link_directories(../lib)
+
+set(BOOST_LIBRARY_OBJ boost_thread boost_system boost_serialization)
+if(${CMAKE_BUILD_TYPE} STREQUAL "Release")
+    set(SYSTEM_LIBRARY_OBJ pthread jemalloc)
+else()
+    set(SYSTEM_LIBRARY_OBJ pthread)
+endif()
+set(COMPRESS_LIB_OBJ lz4 zstd bz2 z)
+set(OPENSSL_LIBRARY_OBJ ssl crypto)
+set(DB_LIBRARY_OBJ leveldb snappy rocksdb)
+# set(VCDIFF_OBJ vcdcom vcddec vcdenc)
+set(CLIENT_OBJ CLIENT_LIB NETWORK_LIB DATABASE_LIB CHUNKER_LIB UTIL_LIB)
+set(SERVER_OBJ SERVER_LIB REDUCTION_LIB NETWORK_LIB DATABASE_LIB CHUNKER_LIB UTIL_LIB)
+set(KM_OBJ KM_LIB UTIL_LIB NETWORK_LIB DATABASE_LIB)
+
+set(LINK_OBJ ${COMPRESS_LIB_OBJ} ${OPENSSL_LIBRARY_OBJ} ${DB_LIBRARY_OBJ}
+    ${BOOST_LIBRARY_OBJ} ${SYSTEM_LIBRARY_OBJ})
+
+add_subdirectory(util)
+add_subdirectory(client)
+add_subdirectory(server)
+add_subdirectory(reduction)
+add_subdirectory(key_manager)
+add_subdirectory(app)
+add_subdirectory(network)
+add_subdirectory(database)
+add_subdirectory(chunker)

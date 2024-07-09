@@ -1,0 +1,6 @@
+add_executable(KeyManager km_main.cc)
+target_link_libraries(KeyManager ${KM_OBJ} ${LINK_OBJ})
+add_executable(ClientMain client_main.cc)
+target_link_libraries(ClientMain ${CLIENT_OBJ} ${LINK_OBJ})
+add_executable(ServerMain server_main.cc)
+target_link_libraries(ServerMain ${SERVER_OBJ} ${LINK_OBJ})
