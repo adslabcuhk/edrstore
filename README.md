@@ -1,8 +1,8 @@
-# EDRStore
+# Encrypted Data Reduction: Removing Redundancy from Encrypted Data in Outsourced Storage (EDRStore)
 
 ## Introduction
 
-EDRStore is an outsourced storage system that supports deduplication, delta compression, and local compression for storage savings, and further combines them with encryption for data confidentiality. This repo contains the implementation of EDRStore prototype, baseline approaches, and scripts for traces collecting.
+EDRStore is an outsourced storage system that supports deduplication, delta compression, and local compression for storage savings, and further combines them with encryption for data confidentiality. This repo contains the implementation of EDRStore prototype, baseline approaches, and scripts for trace collecting.
 
 - `./EDRStore`: includes the implementation of EDRStore prototype.
 - `./Baseline`: includes the implementation of all baseline approaches (e.g., MLE, ELC, and Plain).
@@ -80,9 +80,9 @@ Here we provide some instructions to quickly check the effectiveness of each com
 
 - Preparation
 
-Please ensure that you have successfully compiled three components based on their README files in each folder and prepare two  machines (a client and a storage server) connected by the network.
+Please ensure that you have successfully compiled three components based on their README files in each folder and prepare three machines (a client, a storage server, and a key server) connected by the network.
 
-In the client machine, you need to configure `storageServerIp_` to the storage server machine IP in `config.json`. (e.g., "storageServerIp_": "192.168.10.64")
+In the client machine, you need to configure the `ip` under `StorageServer` to the storage server machine IP in `config.json`. (e.g., "ip": "192.168.10.64"), and also the `ip` under `KeyServer` to the key server machine IP.
 
 **Not that we recommend to edit the `config.json` in `./EDRStore` (or `./Baseline` for baseline approaches)  and run `recompile.sh` to enforce the configuration (it will automatically copy the `config.json` to `./EDRStore/bin` or `./Baseline/bin`).**
 

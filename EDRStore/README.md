@@ -83,7 +83,7 @@ Note that `recompile.sh` will copy `./EDRStore/config.json` to `./EDRStore/bin/`
 }
 ```
 
-Note that you need to modify `storageServerIp_`, and `storageServerPort_` according to the machines that run the storage server (cloud).
+Note that you need to modify `ip`, and `port` according to the machines that run the storage server (cloud) and the key server.
 
 - Client usage:
 
