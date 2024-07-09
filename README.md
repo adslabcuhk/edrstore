@@ -10,6 +10,10 @@ EDRStore is an outsourced storage system that supports deduplication, delta comp
 
 Note that each folder has a separate README file to introduce the build instructions and usage.
 
+## Publication
+
+Jia Zhao, Zuoru Yang, Jingwei Li, and Patrick P. C. Lee. "Encrypted Data Reduction: Removing Redundancy from Encrypted Data in Outsourced Storage." Accepted for publication in ACM Transactions on Storage (TOS).
+
 ## Dependencies
 
 - Basic packages: g++, cmake, openssl, libleveldb-dev, liblz4-dev, libzstd-dev, librocksdb-dev, libboost-all-dev, libsnappy-dev, libbz2-dev, and jemalloc
@@ -86,3 +90,8 @@ In the client machine, you need to configure the `ip` under `StorageServer` to t
 
 **Not that we recommend to edit the `config.json` in `./EDRStore` (or `./Baseline` for baseline approaches)  and run `recompile.sh` to enforce the configuration (it will automatically copy the `config.json` to `./EDRStore/bin` or `./Baseline/bin`).**
 
+Please refer to the separate README files in `./EDRStore` (or `./Baseline` for baseline approaches) for usage instructions and parameter explainations.
+
+- Question
+
+If you have any questions, please feel free to contact `jzhao@cse.cuhk.edu.hk`
