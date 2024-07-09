@@ -320,12 +320,10 @@ int main(int argc, char* argv[]) {
 
       
       	    gettimeofday(&stime, NULL);
-      	    cout<<stime.tv_sec<<"=="<<stime.tv_usec<<endl;
 	    for (auto it : thd_list) {
                 it->join();
             }
             gettimeofday(&etime, NULL);
-            cout<<etime.tv_sec<<"===="<<etime.tv_usec<<endl;
 	    total_time += tool::GetTimeDiff(stime, etime);
             tool::Logging(my_name.c_str(), "%s finish.\n", input_file_path.c_str());
 

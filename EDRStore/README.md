@@ -124,3 +124,10 @@ $ ./KeyManager
 
 You can use "ctrl + C" to stop the storage server and key manager. 
 
+
+- Statistic logs (reduction ratio; speed)
+
+You can check the `client-log` under `bin` for client-side statistics (e.g., total chunk number, client similar chunk number, etc.) and upload/download speeds.
+
+You can check the `server-log` under `bin` for cloud-side statistics (e.g., unique chunk number, similar chunk number, storage size, etc.)
+
