@@ -12,7 +12,7 @@ Note that each folder has a separate README file to introduce the build instruct
 
 ## Publication
 
-Jia Zhao, Zuoru Yang, Jingwei Li, and Patrick P. C. Lee. "Encrypted Data Reduction: Removing Redundancy from Encrypted Data in Outsourced Storage." Accepted for publication in ACM Transactions on Storage (TOS).
+Jia Zhao, Zuoru Yang, Jingwei Li, and Patrick P. C. Lee. [Encrypted Data Reduction: Removing Redundancy from Encrypted Data in Outsourced Storage.](https://www.cse.cuhk.edu.hk/~pclee/www/pubs/tos24edrstore.pdf) Accepted for publication in ACM Transactions on Storage (TOS).
 
 ## Dependencies
 
